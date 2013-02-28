@@ -12,15 +12,15 @@
 		if($row['section_name']==='intro')
 		{
 			$sidebar=$row['content'];
-			}
-			elseif($row['section_name']==='blurb')
-			{
-				$main=$row['content'];
-			}
-			elseif($row['section_name']==='widgets')
-			{
-				$items[] = $row['content'];
-			}
+		}
+		elseif($row['section_name']==='blurb')
+		{
+			$main=$row['content'];
+		}
+		elseif($row['section_name']==='widgets')
+		{
+			$items[] = $row['content'];
+		}
 	}
 ?>
 
@@ -50,6 +50,15 @@
   <article class="content">
     <h1>About Me...</h1>
       <p> <?php echo $main; ?> </p>
+      <p> <?php 
+	  //loop through images $items array and build div for each
+	  for($i = 0; i < count($items); $i++)
+	  {
+		  echo '<div class="widget">';
+		  echo $items[$i];
+		  echo '</div>';
+	  }
+	  ?>
   </article>
   <div class="footer">
   <?php include_once('inc/footer.php'); ?>
