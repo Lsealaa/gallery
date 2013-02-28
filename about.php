@@ -4,6 +4,8 @@
 	$sql="SELECT * FROM site_content WHERE page_name='about'";
 	$myData=$db->query($sql);
 	
+	$items = array();
+	
 	//create container for each piece of data
 	while($row=$myData->fetch_assoc())
 	{
@@ -14,7 +16,11 @@
 			elseif($row['section_name']==='blurb')
 			{
 				$main=$row['content'];
-				}
+			}
+			elseif($row['section_name']==='widgets')
+			{
+				$items[] = $row['content'];
+			}
 	}
 ?>
 
